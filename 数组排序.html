@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+
+    var arr = [49, 38, 65, 97, 76, 13, 27, 49, 1, 2, 3, 6, 3, 4, 6, 5, 5, 55,];
+
+    // function a(arr){
+    //     for(i=0; i<arr.length;i++){
+    //         for(j=0; j<arr.length;j++){
+    //             if(arr[j] > arr[j+1]){
+    //                 var temp = arr[j];
+    //                 arr[j] = arr[j+1];
+    //                 arr[j+1] = temp
+    //             }
+    //         }
+    //     }
+    // }
+    // a(arr);
+    // console.log(arr);
+
+    //冒泡排序
+    function a(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = 0; j < arr.length; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp
+                }
+
+            }
+        }
+        return arr
+    }
+    a(arr);
+    console.log(arr);
+
+    //数组去重
+    function b(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            for (var j = i + 1; j < arr.length; j++) {
+                if (arr[i] == arr[j]) {
+                    arr.splice(j, 1)
+                    j--
+                }
+            }
+        }
+        return arr
+    }
+    console.log(b(arr))
+
+    //数组随机排序
+    function c(arr) {
+        arr.sort(function () {
+            return Math.random() - 0.5
+        })
+        return arr
+    }
+    console.log(c(arr))
+
+    //生成一个10位数随机不重复的数组
+
+    var Array = []
+    function d(arr) {
+        for (var i = 0; i < 11; i++) {
+            arr.push(Math.floor(Math.random() * 10));
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = i + 1; j < arr.length; j++) {
+                    if (arr[i] == arr[j]) {
+                        arr.splice(j, 1)
+                        j--
+
+                    }
+                }
+            }
+        }
+        return arr
+    }
+    console.log(d(Array))
+
+
+// a= 5;
+// b=6;
+
+// // var arr = a;
+// // b= arr;
+// a =b-a;
+// b = a-b;
+
+// console.log(b)
+
+// 合并数组去重排序
+
+var a = [1, 2, 3, 4, 5, 6, 7, 8]
+    var b = [2, 4, 6, 8, 9]
+    var c = [7, 8, 9, 12, 15, 16]
+    var d = a.concat(b.concat(c))
+
+    for (var i = 0; i < d.length; i++) {
+        for (var j = i + 1; j < d.length; j++) {
+            if (d[i] > d[j]) {
+                var temp = d[i];
+                d[i] = d[j]
+                d[j] = temp
+            }
+            if (d[i] == d[j]) {
+                d.splice(j, 1)
+                j--
+            }
+        }
+    }
+
+    console.log(d)
+
+
+
+
+
+</script>
+
+</html>
